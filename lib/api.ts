@@ -3,7 +3,9 @@ import { type Note, type NoteTag } from "../types/note";
 
 const axiosInst = axios.create({
   baseURL: "https://notehub-public.goit.study/api",
-  headers: { Authorization: `Bearer ${import.meta.env.VITE_NOTEHUB_TOKEN}` },
+  headers: {
+    Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTEHUB_TOKEN}`,
+  },
 });
 
 //* === GET === *

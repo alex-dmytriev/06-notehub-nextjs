@@ -9,7 +9,7 @@ const axiosInst = axios.create({
 });
 
 //* === GET === *
-interface fetchNotesProps {
+interface FetchNotesProps {
   notes: Note[];
   totalPages: number;
 }
@@ -17,21 +17,29 @@ interface fetchNotesProps {
 export const fetchNotes = async (
   search: string,
   page: number
-): Promise<fetchNotesProps> => {
+): Promise<FetchNotesProps> => {
   const params = {
     params: {
       page,
       search,
-      perPage: 10,
+      perPage: 12,
     },
   };
 
-  const fetchNotesResponse = await axiosInst.get<fetchNotesProps>(
+  const fetchNotesResponse = await axiosInst.get<FetchNotesProps>(
     "/notes",
     params
   );
 
   return fetchNotesResponse.data;
+};
+
+//* === GET by ID ===
+
+export const fetchNoteById = async (id: string): Promise<Note> => {
+  const response = await axiosInst.get<Note>(`notes/${id}`);
+
+  return response.data;
 };
 
 //* === CREATE === *

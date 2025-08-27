@@ -10,5 +10,6 @@
   "arrowParens": "always",
   "endOfLine": "lf",
   "proseWrap": "preserve",
-  "jsxBracketSameLine": false
+  "jsxBracketSameLine": false,
+  "bracketSameLine": false
 }
